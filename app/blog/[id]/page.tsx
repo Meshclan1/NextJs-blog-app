@@ -14,7 +14,16 @@ const page = async ({
     },
   });
 
-  return <div>Page: {params.id}</div>;
+  return (
+    <div>
+      {post && (
+        <>
+          <h1>{post.title}</h1>
+          <p>{post.content}</p>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default page;
