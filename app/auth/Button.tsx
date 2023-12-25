@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 type Props = {};
 
-const Button = (props: Props) => {
+export const Button = (props: Props) => {
   const { data: session, status } = useSession();
 
   if (status === "loading") {
@@ -24,7 +24,5 @@ const Button = (props: Props) => {
     );
   }
 
-  return <div>Button</div>;
+  return <div onClick={() => signIn()}>Sign In</div>;
 };
-
-export default Button;
