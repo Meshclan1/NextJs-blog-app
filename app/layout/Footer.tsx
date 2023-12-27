@@ -11,7 +11,7 @@ const Footer = (props: Props) => {
       <div className="flex container justify-between">
         <div className="flex flex-row items-center">
           <div>
-            <div className="text-2xl mb-3">Ayo's Blog</div>
+            <div className="text-2xl mb-3">Ayo&apos;s Blog</div>
             <div className="text-sm">© 2023 Ayo Blog</div>
           </div>
         </div>
