@@ -11,7 +11,7 @@ const Header = (props: Props) => {
     <SessionProvider>
       <div className="border-b flex justify-between">
         <Link href="/" className="text-4xl px-2 py-4">
-          LOGO
+          HOME
         </Link>
         <AuthButton />
       </div>
