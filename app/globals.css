@@ -15,3 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+@layer components {
+  .container-sm {
+    @apply max-w-md mx-auto sm:max-w-xs;
+  }
+}

@@ -6,7 +6,7 @@ import { createPost } from "@/app/actions/publishPost";
 type Props = {};
 
 const NewBlogForm = (props: Props) => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
 
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
@@ -19,7 +19,7 @@ const NewBlogForm = (props: Props) => {
     e.preventDefault();
     const userId = session?.user?.id;
 
-    if (!userId) return;
+    if (!userId && status !== "loading") return;
     try {
       const post = await createPost({ title, content, authorId: userId });
       setSubmitted(true);
@@ -47,7 +47,7 @@ const NewBlogForm = (props: Props) => {
         <textarea
           className="flex-1 focus-visible:outline-none text-4xl mt-8"
           value={content}
-          placeholder="Content:"
+          placeholder="Content"
           onChange={(e) => setContent(e.target.value)}
           name="content"
         />
