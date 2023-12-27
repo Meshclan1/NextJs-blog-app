@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { createPost } from "@/app/actions/publishPost";
+import { UploadButton } from "../../utils/uploadthing";
 
 type Props = {};
 
@@ -10,6 +11,7 @@ const NewBlogForm = (props: Props) => {
 
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [thumbnail, setThumbnail] = useState<string | null>(null);
 
   const [submitted, setSubmitted] = useState<boolean>(false);
 
@@ -21,7 +23,12 @@ const NewBlogForm = (props: Props) => {
 
     if (!userId && status !== "loading") return;
     try {
-      const post = await createPost({ title, content, authorId: userId });
+      const post = await createPost({
+        title,
+        content,
+        authorId: userId,
+        imgURL: thumbnail,
+      });
       setSubmitted(true);
     } catch (error) {
       console.log(error);
@@ -51,6 +58,25 @@ const NewBlogForm = (props: Props) => {
           onChange={(e) => setContent(e.target.value)}
           name="content"
         />
+        <div className="self-start">
+          <label className="text-slate-600 mb-3">
+            Add Thumbnail Image(Optional)
+          </label>
+          <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              // Do something with the response
+              console.log("Files: ", res);
+              if (res) {
+                setThumbnail(res[0].url);
+              }
+            }}
+            onUploadError={(error: Error) => {
+              // Do something with the error.
+              alert(`ERROR! ${error.message}`);
+            }}
+          />
+        </div>
         <button
           className="w-fit-content text-white bg-indigo-400 px-4 py-2 sm:px-6 sm:py-4 mt-6 border-2 rounded shadow-[0.25rem_0.25rem_0px_0px_rgba(0,0,0,1)]"
           type="submit"

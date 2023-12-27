@@ -2,13 +2,7 @@ import React from "react";
 import { prisma } from "@/lib/prisma";
 import Image from "next/image";
 
-const page = async ({
-  params,
-}: {
-  params: {
-    id: string;
-  };
-}) => {
+const page = async ({ params }: { params: { id: string } }) => {
   const post = await prisma.post.findUnique({
     where: {
       id: Number(params.id),
