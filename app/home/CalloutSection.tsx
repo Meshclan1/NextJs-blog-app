@@ -10,8 +10,7 @@ const CalloutSection = () => {
           <p className="max-w-2xl">
             Stay up-to-date with the latest tech news and announcements by
             reading our curated articles, ranging from bite-sized pieces to
-            in-depth features. Perfect for busy users who want to stay informed
-            on the go and for those who prefer to dive deep into a topic.
+            in-depth features.
           </p>
         </div>
         <div className="col-span-4 rounded-full border-2 w-[100px] h-[100px] md:w-[300px] md:h-[300px] relative self-center">
