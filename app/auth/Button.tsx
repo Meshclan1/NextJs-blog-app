@@ -14,7 +14,7 @@ export const Button = (props: Props) => {
   if (session) {
     return (
       <button
-        className="text-white bg-black p-4"
+        className="text-white bg-black p-4 cursor-pointer"
         onClick={(e) => {
           e.preventDefault();
           signOut();
@@ -26,7 +26,10 @@ export const Button = (props: Props) => {
   }
 
   return (
-    <div className="text-white bg-black p-4" onClick={() => signIn()}>
+    <div
+      className="text-white bg-black p-4 cursor-pointer"
+      onClick={() => signIn()}
+    >
       Sign In
     </div>
   );

@@ -16,6 +16,21 @@ const handler = NextAuth({
   session: {
     strategy: "jwt",
   },
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user?.id) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id;
+      }
+      return session;
+    },
+  },
+
   secret: process.env.NEXTAUTH_URLSECRET as string,
   debug: true,
 });
