@@ -66,6 +66,7 @@ model Post {
   authorId Int   
   categories Category[]
   imgURL String?
+  createdAt  DateTime   @default(now())
 }
 
 model Category {

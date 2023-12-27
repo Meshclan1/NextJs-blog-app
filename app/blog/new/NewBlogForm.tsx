@@ -60,7 +60,7 @@ const NewBlogForm = (props: Props) => {
         />
         <div className="self-start">
           <label className="text-slate-600 mb-3">
-            Add Thumbnail Image(Optional)
+            Add Thumbnail Image (Optional)
           </label>
           <UploadButton
             endpoint="imageUploader"
