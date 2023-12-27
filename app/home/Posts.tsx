@@ -16,6 +16,7 @@ const Posts = async (props: Props) => {
     "bg-orange-500",
     "bg-white-500",
     "bg-emerald-500",
+    "bg-lilac-500",
   ];
   return (
     <div>
